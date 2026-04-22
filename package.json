@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "schema:update": "npx openapi-typescript https://cloud.kaneo.app/api/openapi -o src/types/schema.ts"
   },
   "keywords": [],
@@ -13,5 +13,10 @@
   "type": "commonjs",
   "dependencies": {
     "axios": "^1.15.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9"
   }
 }

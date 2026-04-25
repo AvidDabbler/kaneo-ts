@@ -1,11 +1,6 @@
 // src/types/kaneo.ts
 import { operations } from "./schema";
 
-export interface KaneoConfig {
-  host: string;
-  apiKey: string;
-}
-
 export type ProjectRequest =
   operations["createProject"]["requestBody"]["content"]["application/json"];
 export type ProjectResponse =

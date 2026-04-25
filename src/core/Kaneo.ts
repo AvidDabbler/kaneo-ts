@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from "axios";
-import { KaneoConfig } from "../types/kaneo";
 import { Project } from "../modules/Project";
 import { Task } from "../modules/Task";
 
@@ -8,15 +7,22 @@ export class Kaneo {
   public project: Project;
   public task: Task;
 
-  constructor(config: KaneoConfig) {
-    const baseUrl = config.host.endsWith("/")
-      ? config.host.slice(0, -1)
-      : config;
+  constructor(host: string, apiKey: string) {
+    if (host == "") {
+      throw Error("host is required");
+    }
+    if (apiKey == "") {
+      throw Error("apiKey is required");
+    }
+    const baseUrl = host.endsWith("/") ? host.slice(0, -1) : null;
+    if (baseUrl == null) {
+      throw Error("host must end with '/'");
+    }
 
     this.client = axios.create({
       baseURL: `${baseUrl}/api`,
       headers: {
-        Authorization: `Bearer ${config.apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
     });

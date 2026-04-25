@@ -2,10 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { Kaneo } from "../src";
 import { Project } from "../src/modules/Project";
 import axios from "axios";
-import dotenv from "dotenv";
 import { ProjectRequest, ProjectResponse } from "../src/types/kaneo";
-
-dotenv.config({ path: ".env.test" });
 
 vi.mock("axios");
 
